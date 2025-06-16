@@ -1,0 +1,29 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/BenGAThomas/exercise#readme",
+  "bugs": {
+    "url": "https://github.com/BenGAThomas/exercise/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenGAThomas/exercise.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
+    "dotenv": "^16.5.0",
+    "exercise": "file:",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {}
+}

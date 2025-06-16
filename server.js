@@ -4,7 +4,7 @@ import {createClient} from '@supabase/supabase-js';
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 const supabase = createClient(
     process.env.SUPABASE_URL,
@@ -13,9 +13,10 @@ const supabase = createClient(
 
 app.use(express.static('public'))
 
-app.get('/exercises', async (req, res) => {
+app.get('/excersises', async (req, res) => {
+    console.log('Get /excersises hit')
     
-    let info = supabase.from('exercises')
+    let info = supabase.from('excersises')
     .select('name')
 
     const {data, error} = await info
@@ -30,5 +31,5 @@ app.get('/exercises', async (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`)
+    console.log(`Server running on http://localhost:${PORT}`)
 })
