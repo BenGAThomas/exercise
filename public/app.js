@@ -17,7 +17,7 @@ document.getElementById('filterForm').addEventListener('submit', async e => {
 
     try {
         const res = await fetch('/exercises?' + params.toString())
-        console.log('/exercises?' + params.toString())
+        //console.log('/exercises?' + params.toString())
         if(!res.ok) throw new Error(`HTTP ${res.status}`)
         const exercises = await res.json() //this will format the response as JSON
         
@@ -27,11 +27,22 @@ document.getElementById('filterForm').addEventListener('submit', async e => {
             ul.innerHTML = '<li>No exercises found.</li>'
         } else {
             ul.innerHTML = exercises.map(exercise => {
-                return `<li>${exercise.name}</li>`
+                return `
+                <li>
+                <a href="exercise.html?id=${encodeURIComponent(exercise.id)}" target="_blank"> 
+                <strong>${exercise.name}</strong><br/>
+                </a>
+                Level: ${exercise.level},
+                Equipment: ${exercise.equipment || 'None'},
+                Primary Muscle: ${exercise.primaryMuscles || 'Unknown'},
+                Category: ${exercise.category}
+                
+
+                </li>`
             }).join('')
         }
 
-        console.log(exercises.level)
+        //console.log(exercises.level)
     }
     catch (err) {
         console.log('Error fetching exercises:', err)
@@ -40,3 +51,6 @@ document.getElementById('filterForm').addEventListener('submit', async e => {
 }
 
 )
+
+
+
